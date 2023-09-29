@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: sumanth
+    #environment: sumanth
     env:
       aws_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
     steps:
