@@ -13,10 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     #environment: sumanth
-    env:
-      aws_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
     steps:
     - uses: actions/checkout@v3
+      env:
+        aws_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
     - name: Use the aws key
       run: |
           echo "Using API key: $aws_key"
