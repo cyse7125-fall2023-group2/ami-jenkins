@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum update –y
+sudo apt update
 sudo apt install openjdk-17-jre -y 
 
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
@@ -9,7 +9,7 @@ curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-
+export JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 sudo apt-get update
 sudo apt-get install jenkins -y
 
