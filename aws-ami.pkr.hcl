@@ -51,6 +51,14 @@ source "amazon-ebs" "ubuntu-jenkins" {
 build {
   name    = "jenkin-packer"
   sources = ["source.amazon-ebs.ubuntu-jenkins"]
+  provisioner "file" {
+    source = "jenkins.service"
+    destination = "/tmp/jenkins.service"
+  }
+  provisioner "file" {
+    source = "plugin.txt"
+    destination = "/tmp/plugin.txt"
+  }
   provisioner "shell" {
     script = "./setup.sh"
   }
