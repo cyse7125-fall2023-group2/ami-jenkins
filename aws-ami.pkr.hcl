@@ -28,8 +28,8 @@ source "amazon-ebs" "ubuntu-jenkins" {
   ami_description = "AMI for CSYE 7125"
   ami_regions     = ["us-east-1"]
   instance_type   = "t2.micro"
-  ami_users       = ["114684977256","423601559248","419325813205"] ## check whether this working fine or not
-  source_ami    = "${var.source_ami}"
+  ami_users       = ["114684977256", "423601559248", "419325813205"] ## check whether this working fine or not
+  source_ami      = "${var.source_ami}"
   aws_polling {
     delay_seconds = 30
     max_attempts  = 50
@@ -52,11 +52,11 @@ build {
   name    = "jenkin-packer"
   sources = ["source.amazon-ebs.ubuntu-jenkins"]
   provisioner "file" {
-    source = "jenkins.service"
+    source      = "jenkins.service"
     destination = "/tmp/jenkins.service"
   }
   provisioner "file" {
-    source = "plugin.txt"
+    source      = "plugin.txt"
     destination = "/tmp/plugin.txt"
   }
   provisioner "shell" {
