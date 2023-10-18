@@ -18,7 +18,9 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --d
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
 sudo apt update
 sudo apt install caddy -y
+sudo cp /tmp/casc.yaml /var/lib/jenkins/casc.yaml
 sudo cp /tmp/jenkins.service /usr/lib/systemd/system/jenkins.service
 sudo cp /tmp/plugin.txt /usr/share/jenkins/plugins.txt
+
 sudo rm -rf /tmp/jenkins.service
 sudo systemctl daemon-reload

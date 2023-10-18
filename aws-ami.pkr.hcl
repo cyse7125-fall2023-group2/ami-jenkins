@@ -59,6 +59,10 @@ build {
     source      = "plugin.txt"
     destination = "/tmp/plugin.txt"
   }
+  provisioner "file" {
+    source      = "casc.yaml"
+    destination = "/tmp/casc.yaml"
+  }
   provisioner "shell" {
     script = "./setup.sh"
   }

@@ -55,6 +55,8 @@ Environment="JENKINS_WEBROOT=%C/jenkins/war"
 
 # Arguments for the Jenkins JVM
 Environment="JAVA_OPTS=-Djenkins.install.runSetupWizard=false"
+Environment="CASC_JENKINS_CONFIG=/var/lib/jenkins/casc.yaml"
+
 
 # IP address to listen on for HTTP requests.
 # The default is to listen on all interfaces (0.0.0.0).
@@ -65,6 +67,8 @@ Environment="JAVA_OPTS=-Djenkins.install.runSetupWizard=false"
 # add the CAP_NET_BIND_SERVICE capability to the AmbientCapabilities
 # directive below.
 Environment="JENKINS_PORT=8080"
+; Environment="JENKINS_ADMIN_ID=sumanth"
+; Environment="JENKINS_ADMIN_PASSWORD=password"
 
 # IP address to listen on for HTTPS requests. Default is disabled.
 #Environment="JENKINS_HTTPS_LISTEN_ADDRESS="
