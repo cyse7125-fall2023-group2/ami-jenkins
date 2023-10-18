@@ -15,15 +15,22 @@ security:
     authenticators:
     - global:
         strategy: triggeringUsersAuthorizationStrategy
-# credentials:
-#   system:
-#     domainCredentials:
-#     - credentials:
-#       - gitHubApp:
-#           appID: "xx"
-#           description: "xx"
-#           id: "xx"
-#           privateKey: ${GH_APP_KEY}
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamepassword:
+          scope: GLOBAL
+          id: "gitcreds-id"
+          username: "add your github userName"
+          password: "add you github password"
+          description: "default credentials."
+      - usernamepassword:
+          scope: GLOBAL
+          id: "dockerCreds-id"
+          username: "add docker"
+          password: "add docker password"
+          description: "docker credentials"
       # security:
       #  queueItemAuthenticator:
       #  authenticators:
