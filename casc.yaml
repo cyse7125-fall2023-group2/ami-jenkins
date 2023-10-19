@@ -21,36 +21,24 @@ credentials:
     - credentials:
       - usernamepassword:
           scope: GLOBAL
-          id: "gitcreds-id"
+          id: "GITHUB_CREDENTIALS_ID"
           username: "add your github userName"
-          password: "add you github password"
+          password: "add you github Personal Access Token"
           description: "default credentials."
       - usernamepassword:
           scope: GLOBAL
-          id: "dockerCreds-id"
+          id: "DOCKER_HUB-ID"
           username: "add docker"
           password: "add docker password"
           description: "docker credentials"
-      # security:
-      #  queueItemAuthenticator:
-      #  authenticators:
-      #  - global:
-      #     strategy: triggeringUsersAuthorizationStrategy
+unclassified:
+  githubServerConfigurations:
+    - secretText:
+        id: "github-token"
+        secret: " "   # Personal token from GitHub
+    - githubServerConfiguration:
+        name: "GitHub"
+        apiUri: "https://api.github.com"
+        credentialsId: "github-token"
 
-# credentials:
-#   system:
-#     domainCredentials:
-#     - credentials:
-#       - usernamePassword:
-#           id: "GITHUB_CREDENTIALS_ID"
-#           username: "shikha-commits"
-#           password: "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"
-#           description: "credentials of github"
-#           scope: GLOBAL
 
-#       - usernamePassword:
-#           id: "DOCKER_HUB"
-#           username: "sumanthksai"
-#           password: "Asdqwe@5640"
-#           description: "credentials of docker"
-#           scope: GLOBAL
