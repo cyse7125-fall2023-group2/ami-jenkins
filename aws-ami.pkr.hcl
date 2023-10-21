@@ -55,14 +55,22 @@ build {
     source      = "jenkins.service"
     destination = "/tmp/jenkins.service"
   }
+
   provisioner "file" {
     source      = "plugin.txt"
     destination = "/tmp/plugin.txt"
   }
+
   provisioner "file" {
     source      = "casc.yaml"
     destination = "/tmp/casc.yaml"
   }
+
+provisioner "file" {
+    source      = "seedJob.groovy"
+    destination = "/tmp/seedJob.groovy"
+  }
+
   provisioner "shell" {
     script = "./setup.sh"
   }

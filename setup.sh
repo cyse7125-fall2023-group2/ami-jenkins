@@ -19,6 +19,8 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 sudo apt update
 sudo apt install caddy -y
 sudo cp /tmp/casc.yaml /var/lib/jenkins/casc.yaml
+sudo cp /tmp/seedJob.groovy /var/lib/jenkins/seedJob.groovy
+
 sudo cp /tmp/jenkins.service /usr/lib/systemd/system/jenkins.service
 sudo cp /tmp/plugin.txt /usr/share/jenkins/plugins.txt
 
