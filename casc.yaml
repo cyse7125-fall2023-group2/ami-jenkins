@@ -3,12 +3,12 @@ jenkins:
     local:
       allowsSignup: false
       users:
-       - id: sumanth
-         password: password
+       - id: ${JENKINS_ADMIN}
+         password: ${JENKINS_PASSWORD}
   authorizationStrategy:
     globalMatrix:
       permissions:
-        - "Overall/Administer:sumanth"
+        - "Overall/Administer:${JENKINS_ADMIN}"
         - "Overall/Read:authenticated"
 security:
   queueItemAuthenticator:
@@ -22,23 +22,14 @@ credentials:
       - usernamepassword:
           scope: GLOBAL
           id: "GITHUB_CREDENTIALS_ID"
-          username: "add your github userName"
-          password: "add you github Personal Access Token"
+          username: "${{ secrets.username }}"
+          password: "${{ secrets.personalAccessToken }}"
           description: "default credentials."
       - usernamepassword:
           scope: GLOBAL
-          id: "DOCKER_HUB-ID"
-          username: "add docker"
-          password: "add docker password"
+          id: "DOCKER_HUB_ID"
+          username: "${{ secrets.docker_username }}"
+          password: "${{ secrets.docker_password }}"
           description: "docker credentials"
-unclassified:
-  githubServerConfigurations:
-    - secretText:
-        id: "github-token"
-        secret: " "   # Personal token from GitHub
-    - githubServerConfiguration:
-        name: "GitHub"
-        apiUri: "https://api.github.com"
-        credentialsId: "github-token"
-
-
+jobs:
+  - file: /var/lib/jenkins/seedJob.groovy                                                                                                                                  21,5          Top
