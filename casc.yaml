@@ -3,12 +3,12 @@ jenkins:
     local:
       allowsSignup: false
       users:
-       - id: ${JENKINS_ADMIN}
-         password: ${JENKINS_PASSWORD}
+       - id: 
+         password: 
   authorizationStrategy:
     globalMatrix:
       permissions:
-        - "Overall/Administer:${JENKINS_ADMIN}"
+        - "Overall/Administer:sumanth"
         - "Overall/Read:authenticated"
 security:
   queueItemAuthenticator:
@@ -22,14 +22,14 @@ credentials:
       - usernamepassword:
           scope: GLOBAL
           id: "GITHUB_CREDENTIALS_ID"
-          username: "${{ secrets.username }}"
-          password: "${{ secrets.personalAccessToken }}"
+          username: ""
+          password: ""
           description: "default credentials."
       - usernamepassword:
           scope: GLOBAL
           id: "DOCKER_HUB_ID"
-          username: "${{ secrets.docker_username }}"
-          password: "${{ secrets.docker_password }}"
+          username: ""
+          password: ""
           description: "docker credentials"
 jobs:
-  - file: /var/lib/jenkins/seedJob.groovy                                                                                                                                  21,5          Top
+  - file: /var/lib/jenkins/seedJob.groovy
