@@ -6,9 +6,11 @@ sudo apt update
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
 
-echo "##################################################################" \
-     "####################INSTALLING Docker ##############################" \
-    "###################################################################"
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "|                    INSTALL Docker                           |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -23,9 +25,11 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 
-echo "##################################################################" \
-     "####################INSTALLING NODE ##############################" \
-    "###################################################################"
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "|                    INSTALL Node                             |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
 sudo apt install nodejs -y
@@ -36,10 +40,38 @@ sudo npm install -g @semantic-release/exec@5.0.0
 sudo npm install -g conventional-changelog-conventionalcommits
 sudo npm install -g npm-cli-login
 
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "|                    INSTALL HELM                             |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+helm version
 
-echo "##################################################################" \
-     "####################INSTALLING Jenkins ##############################" \
-    "###################################################################"
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "|                    INSTALL KubeCtl                          |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
+sudo apt-get install kubectl
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update && sudo apt-get install google-cloud-cli
+sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+
+
+
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "|                    INSTALL Jenkins                          |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
 sudo apt install openjdk-17-jre -y 
 
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
@@ -49,6 +81,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
   
+
 
 
 export JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
