@@ -22,3 +22,4 @@ ws-cleanup:latest
 job-dsl:latest
 semantic-versioning-plugin:latest
 nodejs:latest
+pipeline-utility-steps:latest
