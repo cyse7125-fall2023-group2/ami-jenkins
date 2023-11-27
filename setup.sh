@@ -66,8 +66,6 @@ sudo apt-get update
 sudo apt install google-cloud-cli
 sudo apt install google-cloud-sdk-gke-gcloud-auth-plugin
 
-
-
 echo "+-------------------------------------------------------------+"
 echo "|                                                             |"
 echo "|                    INSTALL Jenkins                          |"
