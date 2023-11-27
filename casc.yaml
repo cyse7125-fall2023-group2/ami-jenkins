@@ -3,8 +3,8 @@ jenkins:
     local:
       allowsSignup: false
       users:
-       - id: "sumanth"
-         password: "password"
+       - id:
+         password:
   authorizationStrategy:
     globalMatrix:
       permissions:
@@ -39,4 +39,4 @@ credentials:
             description: "Webapp Operator Credential"
 
 jobs:
-  - file: /var/lib/jenkins/seedJob.groovy
+  - file: /var/lib/seedJob.groovy
