@@ -100,7 +100,10 @@ sudo cp /tmp/jenkins.service /usr/lib/systemd/system/jenkins.service
 sudo cp /tmp/plugin.txt /usr/share/jenkins/plugins.txt
 
 sudo rm -rf /tmp/jenkins.service
-
-
-
+sudo apt install make
+sudo apt install golang-go
 sudo systemctl daemon-reload
+
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get update && sudo apt-get install google-cloud-cli
