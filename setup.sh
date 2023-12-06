@@ -57,14 +57,14 @@ echo "|                                                             |"
 echo "|                    INSTALL KubeCtl                          |"
 echo "|                                                             |"
 echo "+-------------------------------------------------------------+"
-sudo apt install kubectl
-sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-sudo apt-get update 
-sudo apt install google-cloud-cli
-sudo apt install google-cloud-sdk-gke-gcloud-auth-plugin
+# sudo apt install kubectl
+# sudo apt-get update
+# sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
+# echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+# sudo apt-get update 
+# sudo apt install google-cloud-cli
+# sudo apt install google-cloud-sdk-gke-gcloud-auth-plugin
 
 echo "+-------------------------------------------------------------+"
 echo "|                                                             |"
@@ -101,9 +101,9 @@ sudo cp /tmp/plugin.txt /usr/share/jenkins/plugins.txt
 
 sudo rm -rf /tmp/jenkins.service
 sudo apt install make
-sudo apt install golang-go
+sudo apt install golang-go -y
 sudo systemctl daemon-reload
 
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get update && sudo apt-get install google-cloud-cli
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+# echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# sudo apt-get update && sudo apt-get install google-cloud-cli
